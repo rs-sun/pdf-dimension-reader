@@ -1,0 +1,25 @@
+pdfplumber>=0.10.0
+PyMuPDF>=1.23.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+scikit-image>=0.22.0
+numpy>=1.24.0
+Pillow>=10.0.0
+flask>=3.0.0
+flask-cors>=4.0.0
+gunicorn>=21.2.0
+openpyxl>=3.1.0
+python-calamine==0.8.2
+
+# Legacy/diagnostic OCR dependencies. Strict vector recognition does not call
+# OCR or fall back to these engines. Accelerator packages require a separate
+# platform-specific installation and are not pinned by this source candidate.
+paddleocr>=2.7.0
+rapidocr>=3.8.0
+
+# Strict view grouping requires an ONNX runtime and separately supplied,
+# authorized model assets. Configure the runtime for the target platform.
+onnxruntime>=1.16.0
+
+# Optional YOLO view tooling and legacy view segmentation.
+ultralytics>=8.3.0

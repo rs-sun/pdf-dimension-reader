@@ -1,0 +1,18 @@
+{
+  "assets": {
+    "character_table_v1.json": {
+      "schema_version": "r92_directional_walk_character_table_v1",
+      "sha256": "505fb063fb3da1cd4fe5e3c206a4b598fae9531d273966b7af3cb25adcd2dfff"
+    },
+    "step_table_v1.json": {
+      "schema_version": "r92_directional_walk_step_tables_v1",
+      "sha256": "c981a98a397da2f3faa46d121b55341cd1becba989633239ea9d96ba807984ef"
+    }
+  },
+  "consumer_allowed": false,
+  "controlled_template_library": {
+    "path": "",
+    "sha256": ""
+  },
+  "schema_version": "r92_directional_walk_asset_manifest_v1"
+}

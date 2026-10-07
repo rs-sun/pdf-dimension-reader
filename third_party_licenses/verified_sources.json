@@ -1,0 +1,129 @@
+[
+  {
+    "package": "pdf-lib",
+    "version": "1.17.1",
+    "url": "https://registry.npmjs.org/pdf-lib/-/pdf-lib-1.17.1.tgz",
+    "tarball_sha256": "a7cc1eaf12e41e612a7be581162a63b18118aefc01e90f6a1f35347b1f324a1c",
+    "licenses": [
+      "pdf-lib-1.17.1/LICENSE.md"
+    ],
+    "bundle_comparison": {
+      "pdf-lib.min.js": {
+        "matches_official_distribution": true,
+        "local_sha256": "0f9a5cad07941f0826586c94e089d89b918c46e5c17cf2d5a3c6f666e3bc694f",
+        "official_sha256": "0f9a5cad07941f0826586c94e089d89b918c46e5c17cf2d5a3c6f666e3bc694f"
+      }
+    }
+  },
+  {
+    "package": "pdfjs-dist",
+    "version": "3.11.174",
+    "url": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-3.11.174.tgz",
+    "tarball_sha256": "11402926f38e7d5c71e63f4c3fdcfcb9172afd5bd202900994cecfa8ee7a98c4",
+    "licenses": [
+      "pdfjs-dist-3.11.174/cmaps/LICENSE",
+      "pdfjs-dist-3.11.174/LICENSE"
+    ],
+    "bundle_comparison": {
+      "pdf.min.js": {
+        "matches_official_distribution": true,
+        "local_sha256": "5b5799e6f8c680663207ac5b42ee14eed2a406fa7af48f50c154f0c0b1566946",
+        "official_sha256": "5b5799e6f8c680663207ac5b42ee14eed2a406fa7af48f50c154f0c0b1566946"
+      },
+      "pdf.worker.min.js": {
+        "matches_official_distribution": true,
+        "local_sha256": "feabdf309770ed24bba31a5467836cdc8cf639c705af27d52b585b041bb8527b",
+        "official_sha256": "feabdf309770ed24bba31a5467836cdc8cf639c705af27d52b585b041bb8527b"
+      }
+    }
+  },
+  {
+    "package": "jszip",
+    "version": "3.10.1",
+    "url": "https://registry.npmjs.org/jszip/-/jszip-3.10.1.tgz",
+    "tarball_sha256": "5117f4a2a645aeb307bf3b829c575ad58135cc97e75291e594532ab5b5b21b23",
+    "licenses": [
+      "jszip-3.10.1/LICENSE.markdown"
+    ],
+    "bundle_comparison": {
+      "jszip.min.js": {
+        "matches_official_distribution": true,
+        "local_sha256": "acc7e41455a80765b5fd9c7ee1b8078a6d160bbbca455aeae854de65c947d59e",
+        "official_sha256": "acc7e41455a80765b5fd9c7ee1b8078a6d160bbbca455aeae854de65c947d59e"
+      }
+    }
+  },
+  {
+    "package": "pako",
+    "version": "1.0.11",
+    "url": "https://registry.npmjs.org/pako/-/pako-1.0.11.tgz",
+    "tarball_sha256": "0d4028dc0352a740c30cbfd772917f2744986d42bfa0b06ec7642bffe7ad3941",
+    "licenses": [
+      "pako-1.0.11/LICENSE",
+      "pako-1.0.11/ZLIB-NOTICE.txt"
+    ],
+    "bundle_comparison": {},
+    "notice_source": "https://github.com/nodeca/pako/blob/1.0.11/lib/zlib/inflate.js",
+    "license_split_source": "https://github.com/nodeca/pako/blob/1.0.11/README.md"
+  },
+  {
+    "package": "tslib",
+    "version": "1.11.1",
+    "url": "https://registry.npmjs.org/tslib/-/tslib-1.11.1.tgz",
+    "tarball_sha256": "7095b4b5fe8fe827acbf6ebe53dc44129f887b56d1bf85ee99331729d36b2fed",
+    "licenses": [
+      "tslib-1.11.1/LICENSE.txt"
+    ],
+    "bundle_comparison": {}
+  },
+  {
+    "package": "@pdf-lib/standard-fonts",
+    "version": "1.0.0",
+    "url": "https://registry.npmjs.org/@pdf-lib/standard-fonts/-/standard-fonts-1.0.0.tgz",
+    "tarball_sha256": "8a6b3a914d6d928840b484aa247d12702fc7b5ef00130a914929a129a5423d36",
+    "licenses": [
+      "pdf-lib__standard-fonts-1.0.0/LICENSE.md"
+    ],
+    "bundle_comparison": {}
+  },
+  {
+    "package": "@pdf-lib/upng",
+    "version": "1.0.1",
+    "url": "https://registry.npmjs.org/@pdf-lib/upng/-/upng-1.0.1.tgz",
+    "tarball_sha256": "737ffe924e0e207173427b7fe30a610144c93b27a1c894ac006b6ff70fc84f6c",
+    "licenses": [
+      "pdf-lib__upng-1.0.1/LICENSE"
+    ],
+    "bundle_comparison": {}
+  },
+  {
+    "package": "lie",
+    "version": "3.3.0",
+    "url": "https://registry.npmjs.org/lie/-/lie-3.3.0.tgz",
+    "tarball_sha256": "2db8461cd4a10e2fc3588c8c55da34d33465ff81cc19c72416bbcaec7ee6a36e",
+    "licenses": [
+      "lie-3.3.0/license.md"
+    ],
+    "bundle_comparison": {}
+  },
+  {
+    "package": "immediate",
+    "version": "3.0.6",
+    "url": "https://registry.npmjs.org/immediate/-/immediate-3.0.6.tgz",
+    "tarball_sha256": "98c792f39650b00818c05dcc407902034dc4092f368596b37658d44f28739d11",
+    "licenses": [
+      "immediate-3.0.6/LICENSE.txt"
+    ],
+    "bundle_comparison": {}
+  },
+  {
+    "package": "setimmediate",
+    "version": "1.0.5",
+    "url": "https://registry.npmjs.org/setimmediate/-/setimmediate-1.0.5.tgz",
+    "tarball_sha256": "5cb9fc22698364ed42c02d6aa3dc50ffeafa68452ae84699672e3dfd74922c9e",
+    "licenses": [
+      "setimmediate-1.0.5/LICENSE.txt"
+    ],
+    "bundle_comparison": {}
+  }
+]

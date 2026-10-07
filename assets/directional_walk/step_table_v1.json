@@ -1,0 +1,1137 @@
+{
+  "consumer_allowed": false,
+  "directions": {
+    "negative": {
+      "consumer_allowed": false,
+      "lookup": {
+        "[\"0.8\",\"1.1\",1,0,0,1]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_213d850e043e2637d3c4",
+            "low_confidence": false,
+            "n": 96,
+            "next_shape_keys": [
+              "[\"3.2\",\"5.6\",12,12,0,0]"
+            ],
+            "relative_dispersion": 0.016753,
+            "step_pt": 4.245597
+          }
+        ],
+        "[\"1.0\",\"5.6\",3,3,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_5c5fdff51ac9310f6cb5",
+            "low_confidence": false,
+            "n": 55,
+            "next_shape_keys": [
+              "[\"0.8\",\"1.1\",1,0,0,1]"
+            ],
+            "relative_dispersion": 0.003814,
+            "step_pt": 4.239149
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_bb1a779e7f2e08f0bf06",
+            "low_confidence": false,
+            "n": 4,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 0.000869,
+            "step_pt": 6.212652
+          }
+        ],
+        "[\"1.2\",\"1.7\",8,8,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_cd44d999f010783655b8",
+            "low_confidence": false,
+            "n": 12,
+            "next_shape_keys": [
+              "[\"1.0\",\"5.6\",3,3,0,0]",
+              "[\"3.2\",\"5.6\",11,11,0,0]",
+              "[\"3.2\",\"5.6\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.007943,
+            "step_pt": 3.228964
+          }
+        ],
+        "[\"1.4\",\"2.0\",1,0,0,1]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_6a77ee4431b5e7322b7d",
+            "low_confidence": false,
+            "n": 72,
+            "next_shape_keys": [
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",11,11,0,0]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.5\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",12,12,0,0]",
+              "[\"5.6\",\"9.8\",15,15,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004953,
+            "step_pt": 7.350525
+          }
+        ],
+        "[\"1.7\",\"9.8\",2,2,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_058c4f292ec0f2878af9",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"9.9\",\"9.9\",4,0,4,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 18.35437
+          }
+        ],
+        "[\"1.7\",\"9.8\",3,3,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_96fa7b468247115dafda",
+            "low_confidence": false,
+            "n": 9,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.004897,
+            "step_pt": 7.386636
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_256b6642ec5f7bb3eef5",
+            "low_confidence": false,
+            "n": 7,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 1.9e-05,
+            "step_pt": 9.352881
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_85dd987ebc3d83f7a349",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",2,2,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 11.337158
+          }
+        ],
+        "[\"2.1\",\"3.0\",8,8,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_f830b7f88f11ec57156d",
+            "low_confidence": false,
+            "n": 11,
+            "next_shape_keys": [
+              "[\"5.6\",\"9.8\",12,12,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]",
+              "[\"5.7\",\"9.9\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004907,
+            "step_pt": 5.646206
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_d07f07f7e922a4d60356",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"1.7\",\"9.8\",3,3,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 5.760463
+          }
+        ],
+        "[\"3.1\",\"5.6\",11,11,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_6baad6a4fdf482073be8",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"0.8\",\"1.1\",1,0,0,1]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 4.231445
+          }
+        ],
+        "[\"3.1\",\"5.6\",2,2,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_c826be5f450c1d57f12e",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"3.2\",\"5.6\",12,12,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 4.231323
+          }
+        ],
+        "[\"3.2\",\"5.6\",11,11,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_76ad1e5c48fc72658ca6",
+            "low_confidence": false,
+            "n": 3,
+            "next_shape_keys": [
+              "[\"0.8\",\"1.1\",1,0,0,1]",
+              "[\"3.2\",\"5.6\",12,12,0,0]"
+            ],
+            "relative_dispersion": 5.8e-05,
+            "step_pt": 4.210693
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_bcfed59a119ead9c098b",
+            "low_confidence": false,
+            "n": 7,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 0.003221,
+            "step_pt": 6.225624
+          }
+        ],
+        "[\"3.2\",\"5.6\",12,12,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_235f0710117ea53adb09",
+            "low_confidence": false,
+            "n": 16,
+            "next_shape_keys": [
+              "[\"0.8\",\"1.1\",1,0,0,1]"
+            ],
+            "relative_dispersion": 5.8e-05,
+            "step_pt": 4.210571
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_da8867a8d2b55243d15f",
+            "low_confidence": false,
+            "n": 96,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}",
+              "{\"compound\":[[\"2.0\",\"0.1\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 0.000443,
+            "step_pt": 6.214443
+          }
+        ],
+        "[\"3.2\",\"5.6\",7,7,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_f0b9877328017d386f5a",
+            "low_confidence": false,
+            "n": 22,
+            "next_shape_keys": [
+              "[\"0.8\",\"1.1\",1,0,0,1]",
+              "[\"1.0\",\"5.6\",3,3,0,0]"
+            ],
+            "relative_dispersion": 0.004947,
+            "step_pt": 4.200358
+          }
+        ],
+        "[\"3.2\",\"5.6\",9,9,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_3191ce8f2e5a476ec034",
+            "low_confidence": false,
+            "n": 32,
+            "next_shape_keys": [
+              "[\"1.0\",\"5.6\",3,3,0,0]",
+              "[\"3.2\",\"5.6\",12,12,0,0]",
+              "[\"3.2\",\"5.6\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.004977,
+            "step_pt": 4.200338
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_5064bc94d7f7cde10a61",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 6.217064
+          }
+        ],
+        "[\"3.3\",\"5.7\",7,7,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_3a0eb228d0eee3bd9886",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"0.8\",\"1.1\",1,0,0,1]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 4.165387
+          }
+        ],
+        "[\"5.5\",\"9.8\",11,11,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_faac3646aba35a709306",
+            "low_confidence": false,
+            "n": 9,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]"
+            ],
+            "relative_dispersion": 0.004863,
+            "step_pt": 7.386841
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_e1de9ee3e875e36edba5",
+            "low_confidence": true,
+            "n": 2,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 1e-05,
+            "step_pt": 9.352801
+          }
+        ],
+        "[\"5.5\",\"9.8\",2,2,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_71c08372a58c4ca8a738",
+            "low_confidence": false,
+            "n": 8,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",12,12,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.004913,
+            "step_pt": 7.386719
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_d221df76fd10f393c3f9",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 9.352817
+          }
+        ],
+        "[\"5.5\",\"9.8\",3,3,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_544f547b6a4a177a2351",
+            "low_confidence": false,
+            "n": 5,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]"
+            ],
+            "relative_dispersion": 4.1e-05,
+            "step_pt": 7.404816
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_44a705fb2041484ba09d",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 9.352805
+          }
+        ],
+        "[\"5.6\",\"9.8\",11,11,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_c3b78fad16eb5be5d28b",
+            "low_confidence": false,
+            "n": 18,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.004953,
+            "step_pt": 7.350647
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_b7c52186087ff35dc63b",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 9.316728
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_0d1b1741a18f8126cfa8",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",2,2,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 11.300903
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_d6b5e95060fc9e44bd7d",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"9.9\",\"15.0\",5,1,4,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 18.318146
+          }
+        ],
+        "[\"5.6\",\"9.8\",12,12,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_da054a8e0f571381fef1",
+            "low_confidence": false,
+            "n": 8,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",2,2,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.00538,
+            "step_pt": 7.352056
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_4bf6272a4caf36986e6e",
+            "low_confidence": false,
+            "n": 15,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 2.2e-05,
+            "step_pt": 9.316749
+          }
+        ],
+        "[\"5.6\",\"9.8\",15,15,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_ee1d9febf130259222a4",
+            "low_confidence": false,
+            "n": 7,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]"
+            ],
+            "relative_dispersion": 0.004933,
+            "step_pt": 7.35054
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_948db25e3b9a7e210614",
+            "low_confidence": true,
+            "n": 2,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 4e-06,
+            "step_pt": 9.316654
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_edaeb353cd0c457d8b4c",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",2,2,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 11.300903
+          }
+        ],
+        "[\"5.6\",\"9.8\",7,7,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_0b154d262d93136f6f1b",
+            "low_confidence": false,
+            "n": 10,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004912,
+            "step_pt": 7.350555
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_53af5d1576b5bcc7d59f",
+            "low_confidence": true,
+            "n": 2,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 6e-06,
+            "step_pt": 9.316671
+          },
+          {
+            "eligible": false,
+            "entry_id": "r92_step_aedf84f0c65baed90203",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",2,2,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 11.302407
+          }
+        ],
+        "[\"5.6\",\"9.8\",9,9,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_8d384db2bcc5bcb2e756",
+            "low_confidence": false,
+            "n": 40,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",11,11,0,0]",
+              "[\"5.5\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",12,12,0,0]",
+              "[\"5.6\",\"9.8\",15,15,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004929,
+            "step_pt": 7.350555
+          }
+        ],
+        "[\"5.7\",\"9.9\",9,9,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_12a8ed49cc7f18c30d48",
+            "low_confidence": true,
+            "n": 2,
+            "next_shape_keys": [
+              "[\"5.5\",\"9.8\",3,3,0,0]"
+            ],
+            "relative_dispersion": 7e-06,
+            "step_pt": 7.345408
+          }
+        ],
+        "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_405cec39eb911d3f167e",
+            "low_confidence": false,
+            "n": 86,
+            "next_shape_keys": [
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",11,11,0,0]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.5\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",15,15,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004698,
+            "step_pt": 7.741003
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_dbdf8b5ad3125b7641b8",
+            "low_confidence": false,
+            "n": 12,
+            "next_shape_keys": [
+              "[\"2.1\",\"3.0\",8,8,0,0]"
+            ],
+            "relative_dispersion": 0.005465,
+            "step_pt": 12.901558
+          }
+        ],
+        "{\"compound\":[[\"2.0\",\"0.1\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_e268349e4c6e9e4c1dee",
+            "low_confidence": false,
+            "n": 10,
+            "next_shape_keys": [
+              "[\"1.7\",\"9.8\",3,3,0,0]"
+            ],
+            "relative_dispersion": 5.2e-05,
+            "step_pt": 7.559302
+          }
+        ]
+      },
+      "no_step_prev_keys": [
+        "[\"1.7\",\"9.8\",2,2,0,0]",
+        "[\"3.1\",\"5.6\",11,11,0,0]",
+        "[\"3.1\",\"5.6\",2,2,0,0]",
+        "[\"3.3\",\"5.7\",7,7,0,0]",
+        "[\"5.7\",\"9.9\",9,9,0,0]"
+      ],
+      "schema_version": "r92_directional_walk_step_direction_v1"
+    },
+    "positive": {
+      "consumer_allowed": false,
+      "lookup": {
+        "[\"0.8\",\"1.1\",1,0,0,1]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_3ac99c58d1d9dfad2e44",
+            "low_confidence": false,
+            "n": 96,
+            "next_shape_keys": [
+              "[\"1.0\",\"5.6\",3,3,0,0]",
+              "[\"3.1\",\"5.6\",11,11,0,0]",
+              "[\"3.2\",\"5.6\",11,11,0,0]",
+              "[\"3.2\",\"5.6\",12,12,0,0]",
+              "[\"3.2\",\"5.6\",7,7,0,0]",
+              "[\"3.3\",\"5.7\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.01934,
+            "step_pt": 4.206303
+          }
+        ],
+        "[\"1.0\",\"5.6\",3,3,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_337efbff787ec363ada5",
+            "low_confidence": false,
+            "n": 4,
+            "next_shape_keys": [
+              "[\"1.2\",\"1.7\",8,8,0,0]"
+            ],
+            "relative_dispersion": 0.00272,
+            "step_pt": 3.237376
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_7e0956a00e6cd864234e",
+            "low_confidence": false,
+            "n": 12,
+            "next_shape_keys": [
+              "[\"3.2\",\"5.6\",7,7,0,0]",
+              "[\"3.2\",\"5.6\",9,9,0,0]"
+            ],
+            "relative_dispersion": 4.8e-05,
+            "step_pt": 4.189962
+          }
+        ],
+        "[\"1.4\",\"2.0\",1,0,0,1]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_4a535da1d0b99a2ccbe3",
+            "low_confidence": false,
+            "n": 72,
+            "next_shape_keys": [
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",11,11,0,0]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.5\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",12,12,0,0]",
+              "[\"5.6\",\"9.8\",15,15,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004958,
+            "step_pt": 7.386701
+          }
+        ],
+        "[\"1.7\",\"9.8\",2,2,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_2964308df8a547b8590e",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.6\",\"9.8\",12,12,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 7.332275
+          }
+        ],
+        "[\"1.7\",\"9.8\",3,3,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_eef415b8266e72d76500",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"2.1\",\"3.0\",8,8,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 5.760463
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_8fb8b49b685c4b84e1ce",
+            "low_confidence": false,
+            "n": 29,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",11,11,0,0]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",15,15,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004986,
+            "step_pt": 7.350555
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_98e08e8a55c9bb1323ae",
+            "low_confidence": false,
+            "n": 10,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.1\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 5.2e-05,
+            "step_pt": 7.559302
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_c3fa06321d4082ee1111",
+            "low_confidence": false,
+            "n": 9,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 1.7e-05,
+            "step_pt": 7.722991
+          }
+        ],
+        "[\"2.1\",\"3.0\",8,8,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_8d0ba3ac9d1123188398",
+            "low_confidence": false,
+            "n": 12,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 0.005465,
+            "step_pt": 12.901558
+          }
+        ],
+        "[\"3.2\",\"5.6\",11,11,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_a4ae46d6f86e0ea0dbf5",
+            "low_confidence": false,
+            "n": 7,
+            "next_shape_keys": [
+              "[\"1.2\",\"1.7\",8,8,0,0]"
+            ],
+            "relative_dispersion": 0.006408,
+            "step_pt": 3.226463
+          }
+        ],
+        "[\"3.2\",\"5.6\",12,12,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_624482c1be5bf9c48845",
+            "low_confidence": false,
+            "n": 112,
+            "next_shape_keys": [
+              "[\"0.8\",\"1.1\",1,0,0,1]",
+              "[\"3.1\",\"5.6\",2,2,0,0]",
+              "[\"3.2\",\"5.6\",11,11,0,0]",
+              "[\"3.2\",\"5.6\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.016753,
+            "step_pt": 4.245597
+          }
+        ],
+        "[\"3.2\",\"5.6\",7,7,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_610ba91d2d52429ba1e8",
+            "low_confidence": false,
+            "n": 7,
+            "next_shape_keys": [
+              "[\"3.2\",\"5.6\",9,9,0,0]"
+            ],
+            "relative_dispersion": 6.2e-05,
+            "step_pt": 4.210562
+          }
+        ],
+        "[\"3.2\",\"5.6\",9,9,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_fb7e929a933e009f7fc4",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"1.2\",\"1.7\",8,8,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 3.231155
+          }
+        ],
+        "[\"5.5\",\"9.8\",11,11,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_b4c3c621e187d290e54d",
+            "low_confidence": false,
+            "n": 8,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004947,
+            "step_pt": 7.350474
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_436ab43e2a3637466833",
+            "low_confidence": false,
+            "n": 7,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 3.2e-05,
+            "step_pt": 7.7229
+          }
+        ],
+        "[\"5.5\",\"9.8\",2,2,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_fe1f316770a3fb998a66",
+            "low_confidence": true,
+            "n": 2,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]"
+            ],
+            "relative_dispersion": 6e-06,
+            "step_pt": 7.332435
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_5a8581002c6ceba5e75d",
+            "low_confidence": false,
+            "n": 3,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 1.1e-05,
+            "step_pt": 7.722981
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_841105843b7451e09ec4",
+            "low_confidence": false,
+            "n": 4,
+            "next_shape_keys": [
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",15,15,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.003208,
+            "step_pt": 11.319031
+          }
+        ],
+        "[\"5.5\",\"9.8\",3,3,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_ddc7a35cfdf4c70c2624",
+            "low_confidence": false,
+            "n": 7,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"5.6\",\"9.8\",9,9,0,0]",
+              "[\"5.7\",\"9.9\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.001786,
+            "step_pt": 7.338884
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_ecc6fb1f380486aac66b",
+            "low_confidence": false,
+            "n": 5,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 1.6e-05,
+            "step_pt": 7.722961
+          }
+        ],
+        "[\"5.5\",\"9.8\",7,7,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_81f45da2f61aef14f8ba",
+            "low_confidence": false,
+            "n": 31,
+            "next_shape_keys": [
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",11,11,0,0]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.5\",\"9.8\",3,3,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",12,12,0,0]",
+              "[\"5.6\",\"9.8\",15,15,0,0]",
+              "[\"5.6\",\"9.8\",7,7,0,0]"
+            ],
+            "relative_dispersion": 0.0039,
+            "step_pt": 9.334801
+          }
+        ],
+        "[\"5.6\",\"9.8\",11,11,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_1a8d796e52e00d496a36",
+            "low_confidence": false,
+            "n": 14,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.6\",\"9.8\",12,12,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.007929,
+            "step_pt": 7.375573
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_8748cfa9ba4cafde1be1",
+            "low_confidence": false,
+            "n": 14,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 3.2e-05,
+            "step_pt": 7.75908
+          }
+        ],
+        "[\"5.6\",\"9.8\",12,12,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_aa76b8dec84af46be076",
+            "low_confidence": false,
+            "n": 5,
+            "next_shape_keys": [
+              "[\"2.1\",\"3.0\",8,8,0,0]"
+            ],
+            "relative_dispersion": 4.8e-05,
+            "step_pt": 5.650727
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_3936ffa99068f3874726",
+            "low_confidence": false,
+            "n": 25,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004933,
+            "step_pt": 7.386642
+          }
+        ],
+        "[\"5.6\",\"9.8\",15,15,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_2ef9d5e10e78f6361525",
+            "low_confidence": false,
+            "n": 5,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 3.3e-05,
+            "step_pt": 7.368591
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_cb25ca27c8efbc08888a",
+            "low_confidence": false,
+            "n": 5,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 1.6e-05,
+            "step_pt": 7.759094
+          }
+        ],
+        "[\"5.6\",\"9.8\",7,7,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_177b09ca888ba65cd8c3",
+            "low_confidence": false,
+            "n": 19,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"1.7\",\"9.8\",3,3,0,0]",
+              "[\"5.5\",\"9.8\",2,2,0,0]",
+              "[\"5.6\",\"9.8\",11,11,0,0]",
+              "[\"5.6\",\"9.8\",12,12,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.005002,
+            "step_pt": 7.386477
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_58a6e82a0400092603d5",
+            "low_confidence": false,
+            "n": 9,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 1.6e-05,
+            "step_pt": 7.759094
+          }
+        ],
+        "[\"5.6\",\"9.8\",9,9,0,0]": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_d2e337c6f5319b2b72e7",
+            "low_confidence": false,
+            "n": 4,
+            "next_shape_keys": [
+              "[\"2.1\",\"3.0\",8,8,0,0]"
+            ],
+            "relative_dispersion": 0.003935,
+            "step_pt": 5.643456
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_ad0ede80a970d779cefe",
+            "low_confidence": false,
+            "n": 6,
+            "next_shape_keys": [
+              "[\"1.4\",\"2.0\",1,0,0,1]",
+              "[\"5.6\",\"9.8\",7,7,0,0]",
+              "[\"5.6\",\"9.8\",9,9,0,0]"
+            ],
+            "relative_dispersion": 1.7e-05,
+            "step_pt": 7.368591
+          },
+          {
+            "eligible": true,
+            "entry_id": "r92_step_a8146ae1055e1875b08b",
+            "low_confidence": false,
+            "n": 34,
+            "next_shape_keys": [
+              "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}"
+            ],
+            "relative_dispersion": 3.3e-05,
+            "step_pt": 7.7591
+          }
+        ],
+        "[\"5.7\",\"9.9\",9,9,0,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_5d7867b3411cc53ab5dc",
+            "low_confidence": true,
+            "n": 2,
+            "next_shape_keys": [
+              "[\"2.1\",\"3.0\",8,8,0,0]"
+            ],
+            "relative_dispersion": 7e-06,
+            "step_pt": 5.660048
+          }
+        ],
+        "[\"9.9\",\"15.0\",5,1,4,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_fe362d3f210a4ecd8c62",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"5.6\",\"9.8\",11,11,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 18.318146
+          }
+        ],
+        "[\"9.9\",\"9.9\",4,0,4,0]": [
+          {
+            "eligible": false,
+            "entry_id": "r92_step_3918653f22ff494d6880",
+            "low_confidence": true,
+            "n": 1,
+            "next_shape_keys": [
+              "[\"1.7\",\"9.8\",2,2,0,0]"
+            ],
+            "relative_dispersion": 0.0,
+            "step_pt": 18.35437
+          }
+        ],
+        "{\"compound\":[[\"2.0\",\"0.0\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_199a71b503023ea9f9b6",
+            "low_confidence": false,
+            "n": 98,
+            "next_shape_keys": [
+              "[\"1.0\",\"5.6\",3,3,0,0]",
+              "[\"3.2\",\"5.6\",11,11,0,0]",
+              "[\"3.2\",\"5.6\",12,12,0,0]",
+              "[\"3.2\",\"5.6\",9,9,0,0]"
+            ],
+            "relative_dispersion": 0.004136,
+            "step_pt": 6.222806
+          }
+        ],
+        "{\"compound\":[[\"2.0\",\"0.1\",1,1,0,0],[\"2.0\",\"2.8\",2,2,0,0]]}": [
+          {
+            "eligible": true,
+            "entry_id": "r92_step_4a88dcc05ddd835cf53c",
+            "low_confidence": false,
+            "n": 10,
+            "next_shape_keys": [
+              "[\"3.2\",\"5.6\",12,12,0,0]"
+            ],
+            "relative_dispersion": 5.8e-05,
+            "step_pt": 6.213247
+          }
+        ]
+      },
+      "no_step_prev_keys": [
+        "[\"1.7\",\"9.8\",2,2,0,0]",
+        "[\"3.2\",\"5.6\",9,9,0,0]",
+        "[\"5.7\",\"9.9\",9,9,0,0]",
+        "[\"9.9\",\"15.0\",5,1,4,0]",
+        "[\"9.9\",\"9.9\",4,0,4,0]"
+      ],
+      "schema_version": "r92_directional_walk_step_direction_v1"
+    }
+  },
+  "schema_version": "r92_directional_walk_step_tables_v1",
+  "tolerance_pt": 0.05
+}

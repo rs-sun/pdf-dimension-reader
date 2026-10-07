@@ -1,0 +1,94 @@
+{
+  "schema_version": "vector_layer_debug_v1",
+  "trace_id": "trace-vector-layer-debug-canonical",
+  "page_index": 0,
+  "coordinate_space": "pdf_page_points_top_left",
+  "status": "ok",
+  "unavailable_reason": null,
+  "stages": [
+    {
+      "stage_id": "L0",
+      "status": "ok",
+      "input_count": 128,
+      "output_count": 12,
+      "drop_count": 116,
+      "elapsed_ms": 1.25,
+      "first_drop": {
+        "candidate_id": "primitive_0001",
+        "reason_code": "anchor_shape_mismatch",
+        "bbox": {
+          "x": 12.5,
+          "y": 20.0,
+          "w": 3.0,
+          "h": 2.0
+        }
+      }
+    },
+    {
+      "stage_id": "L1",
+      "status": "ok",
+      "input_count": 12,
+      "output_count": 10,
+      "drop_count": 2,
+      "elapsed_ms": 2.75,
+      "first_drop": {
+        "candidate_id": "glyph_0007",
+        "reason_code": "topology_signature_mismatch",
+        "bbox": {
+          "x": 41.0,
+          "y": 20.0,
+          "w": 6.0,
+          "h": 9.0
+        }
+      }
+    }
+  ],
+  "overlays": [
+    {
+      "overlay_id": "overlay_l0_anchor_0001",
+      "stage_id": "L0",
+      "role": "first_drop",
+      "bbox": {
+        "x": 12.5,
+        "y": 20.0,
+        "w": 3.0,
+        "h": 2.0
+      },
+      "label": "anchor_shape_mismatch"
+    },
+    {
+      "overlay_id": "overlay_l0_anchor_0002",
+      "stage_id": "L0",
+      "role": "accepted",
+      "bbox": {
+        "x": 24.0,
+        "y": 20.0,
+        "w": 3.0,
+        "h": 2.0
+      },
+      "label": "decimal_anchor"
+    },
+    {
+      "overlay_id": "overlay_l1_glyph_0007",
+      "stage_id": "L1",
+      "role": "first_drop",
+      "bbox": {
+        "x": 41.0,
+        "y": 20.0,
+        "w": 6.0,
+        "h": 9.0
+      },
+      "label": "topology_signature_mismatch"
+    }
+  ],
+  "limits": {
+    "total": 5,
+    "returned": 3,
+    "truncated": true
+  },
+  "authority": {
+    "diagnostic_only": true,
+    "consumer_allowed": false,
+    "release_allowed": false
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "audit": {
+    "authority": {
+      "consumer_allowed": false,
+      "formal_project_data_allowed": false,
+      "release_allowed": false,
+      "review_only": true
+    },
+    "chain": {
+      "chain_counts": {
+        "dedup_winner_count": 1,
+        "l3_dimension_count": 1,
+        "l4_recovered_count": 0,
+        "l5_review_required_count": 1,
+        "ordinary_hypothesis_count": 1,
+        "page_context_build_count": 1,
+        "page_context_extraction_call_count": 1,
+        "phrase_region_count": 1,
+        "quality_pass_count": 1,
+        "reader_call_count": 1,
+        "reader_success_count": 1
+      },
+      "page_index": 0,
+      "schema_version": "r33_m1_phrase_chain_audit_v1",
+      "semantic_projection_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "stage_digests": {
+        "hypothesis": "3333333333333333333333333333333333333333333333333333333333333333",
+        "l3": "4444444444444444444444444444444444444444444444444444444444444444",
+        "l4": "5555555555555555555555555555555555555555555555555555555555555555",
+        "l5": "6666666666666666666666666666666666666666666666666666666666666666",
+        "pitch_reader": "7777777777777777777777777777777777777777777777777777777777777777",
+        "quality_gate": "8888888888888888888888888888888888888888888888888888888888888888",
+        "spatial_dedup": "9999999999999999999999999999999999999999999999999999999999999999"
+      },
+      "stage_status": {
+        "hypothesis": "ok",
+        "l3": "ok",
+        "l4": "ok",
+        "l5": "ok",
+        "phrase_region": "ok",
+        "pitch_reader": "ok",
+        "quality_gate": "ok",
+        "spatial_dedup": "ok"
+      },
+      "status": "ok",
+      "trace_id": "trace_review_candidates_sample"
+    },
+    "counts": {
+      "candidate_count": 1,
+      "drop_reasons": [],
+      "dropped_count": 0,
+      "source_review_count": 1
+    },
+    "runtime": {
+      "ocr_family_call_count": 0,
+      "paddleocr_call_count": 0,
+      "rapidocr_call_count": 0,
+      "yolo_b_call_count": 0,
+      "yolo_char_call_count": 0
+    },
+    "schema_version": "review_candidates_audit_v1",
+    "semantic_digest": "283081a148ae19c1fc2b500f120f7b9846bcb2c7b4ec75a3b13307784a945461",
+    "status": "ok",
+    "template_identity": {
+      "content_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "schema_version": "r33_m1_template_identity_v1",
+      "template_version": "controlled_template_v1"
+    },
+    "unavailable_reason": null
+  },
+  "coordinate_space": "pdf_page_points_top_left",
+  "items": [
+    {
+      "bbox": {
+        "h": 8.0,
+        "w": 18.0,
+        "x": 12.5,
+        "y": 20.0
+      },
+      "candidate_id": "rcv1_de4112e365c27fad4f94a8f1",
+      "lower_tolerance": null,
+      "nominal": "234.567",
+      "prefix": null,
+      "review_status": "pending",
+      "source_stage": "L5_review_required",
+      "symmetric_tolerance": "0.089",
+      "trace": {
+        "candidate_digest": "de4112e365c27fad4f94a8f189087fb2a138a3705580cf92f073fbf54f80697a",
+        "canonical_text": "234.567±0.089",
+        "l5_review_id": "review_1111111111111111",
+        "phrase_id": "phrase_001",
+        "physical_core_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+        "source_l3_semantic_digest": "2222222222222222222222222222222222222222222222222222222222222222",
+        "source_text": "234.567±0.089"
+      },
+      "type": "linear",
+      "unit": null,
+      "upper_tolerance": null
+    }
+  ],
+  "page_index": 0,
+  "schema_version": "review_candidates_v1",
+  "trace_id": "trace_review_candidates_sample"
+}

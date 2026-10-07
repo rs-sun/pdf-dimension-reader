@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图纸尺寸提取系统 v2.1</title>
+    <link rel="stylesheet" href="styles.css?v=s42-clean">
+    <!-- 本地化库 -->
+    <script src="libs/pdf.min.js"></script>
+    <script src="libs/pdf-lib.min.js"></script>
+    <script src="libs/jszip.min.js"></script>
+</head>
+<body>
+
+<!-- ═══════════════════════════ SVG 图标库（Lucide 风格）══════════════════════════
+     所有 <symbol> 定义集中在此隐藏 <svg> 中；按钮里用 <svg class="ic"><use href="#i-xxx"/></svg>
+     viewBox 统一 24×24，currentColor + stroke（由 CSS .ic 控制粗细/线帽）-->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+        <!-- 设置（齿轮）-->
+        <symbol id="i-settings" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </symbol>
+        <!-- 文件夹（打开文件）-->
+        <symbol id="i-folder-open" viewBox="0 0 24 24">
+            <path d="M6 14l1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/>
+        </symbol>
+        <!-- maximize（适合页面）-->
+        <symbol id="i-maximize" viewBox="0 0 24 24">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+            <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+            <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+            <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+        </symbol>
+        <!-- 左尖 -->
+        <symbol id="i-chevron-left" viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"/>
+        </symbol>
+        <!-- 右尖 -->
+        <symbol id="i-chevron-right" viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6"/>
+        </symbol>
+        <!-- 减 -->
+        <symbol id="i-minus" viewBox="0 0 24 24">
+            <path d="M5 12h14"/>
+        </symbol>
+        <!-- 加 -->
+        <symbol id="i-plus" viewBox="0 0 24 24">
+            <path d="M5 12h14"/>
+            <path d="M12 5v14"/>
+        </symbol>
+        <!-- 手（视图模式 / 平移）：简化为 move 图标（四向箭头），和 mouse-pointer 同样 2 path 视觉重量 -->
+        <symbol id="i-hand" viewBox="0 0 24 24">
+            <path d="M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/>
+        </symbol>
+        <!-- 鼠标箭头（编辑模式）-->
+        <symbol id="i-mouse-pointer" viewBox="0 0 24 24">
+            <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51z"/>
+            <path d="M13 13l6 6"/>
+        </symbol>
+        <!-- 瞄准线（标记模式，中心点 + 四向刻线 = 图章对位语义）-->
+        <symbol id="i-crosshair" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="22" y1="12" x2="18" y2="12"/>
+            <line x1="6" y1="12" x2="2" y2="12"/>
+            <line x1="12" y1="6" x2="12" y2="2"/>
+            <line x1="12" y1="22" x2="12" y2="18"/>
+            <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/>
+        </symbol>
+        <!-- 撤销：3/4 圆弧 + 左上箭头 -->
+        <symbol id="i-undo" viewBox="0 0 24 24">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+        </symbol>
+        <!-- 重做：镜像版 -->
+        <symbol id="i-redo" viewBox="0 0 24 24">
+            <path d="M21 12a9 9 0 1 1-9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+            <path d="M21 3v5h-5"/>
+        </symbol>
+        <!-- 剪贴板（调试日志）-->
+        <symbol id="i-clipboard" viewBox="0 0 24 24">
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+            <path d="M9 12h6"/>
+            <path d="M9 16h6"/>
+        </symbol>
+        <!-- 问号：无外圈，字形 + 填充圆点（代替旧版细线底点，避免"屏幕坏点"观感）-->
+        <symbol id="i-help" viewBox="4 2 16 20">
+            <path d="M8.5 8.5a3.5 3.5 0 1 1 5 3.2c-.9.4-1.5 1.3-1.5 2.3v1"/>
+            <circle cx="12" cy="19" r="1.1" fill="currentColor" stroke="none"/>
+        </symbol>
+        <!-- 刷新（重新解析）-->
+        <symbol id="i-refresh" viewBox="0 0 24 24">
+            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+            <path d="M21 3v5h-5"/>
+            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+            <path d="M3 21v-5h5"/>
+        </symbol>
+        <!-- 勾选圆（全部确认）-->
+        <symbol id="i-check-circle" viewBox="0 0 24 24">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <path d="M22 4L12 14.01l-3-3"/>
+        </symbol>
+        <!-- 下载（导出）-->
+        <symbol id="i-download" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <path d="M7 10l5 5 5-5"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+        </symbol>
+        <!-- 关闭（×）-->
+        <symbol id="i-x" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+        </symbol>
+        <!-- 列表（标记列表）-->
+        <symbol id="i-list" viewBox="0 0 24 24">
+            <line x1="8" y1="6" x2="21" y2="6"/>
+            <line x1="8" y1="12" x2="21" y2="12"/>
+            <line x1="8" y1="18" x2="21" y2="18"/>
+            <circle cx="3.5" cy="6" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="3.5" cy="12" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="3.5" cy="18" r="1" fill="currentColor" stroke="none"/>
+        </symbol>
+        <!-- 网格（空间重排 —— 基于空间位置的重排序图标）-->
+        <symbol id="i-grid-sort" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+        </symbol>
+        <!-- 排序切换：双向箭头（正序/倒序按钮）-->
+        <symbol id="i-arrow-up-down" viewBox="0 0 24 24">
+            <path d="M7 4v16"/>
+            <path d="M3 8l4-4 4 4"/>
+            <path d="M17 20V4"/>
+            <path d="M21 16l-4 4-4-4"/>
+        </symbol>
+        <!-- 智能解析（闪光）-->
+        <symbol id="i-sparkles" viewBox="0 0 24 24">
+            <path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275z"/>
+            <path d="M19 3v4"/>
+            <path d="M21 5h-4"/>
+            <path d="M5 17v2"/>
+            <path d="M6 18H4"/>
+        </symbol>
+    </defs>
+</svg>
+
+<!-- ═══════════════════════════ 顶部工具栏 ════════════════════════════════════ -->
+<div id="toolbar">
+    <div class="tb-section">
+        <button id="btn-open-panel" class="tool-btn icon-btn" title="控制面板 / 设置">
+            <svg class="ic"><use href="#i-settings"/></svg>
+        </button>
+        <button id="btn-shortcuts" class="tool-btn icon-btn" title="快捷键提示（?）">
+            <svg class="ic"><use href="#i-help"/></svg>
+        </button>
+        <div class="tb-divider"></div>
+        <!-- 文件载入 -->
+        <label class="file-upload-wrapper" title="支持 .pdf / .json / .zip">
+            <svg class="ic"><use href="#i-folder-open"/></svg>
+            <span>打开</span>
+            <input type="file" id="file-upload" accept=".pdf,.json,.zip" multiple>
+        </label>
+        <div class="tb-divider"></div>
+
+        <!-- 视图控制 -->
+        <button id="btn-actual-size" class="tool-btn" title="实际大小 (1:1)">1:1</button>
+        <button id="btn-fit-page"    class="tool-btn icon-btn" title="适合页面">
+            <svg class="ic"><use href="#i-maximize"/></svg>
+        </button>
+
+        <!-- 翻页 & 页码 -->
+        <button id="btn-prev-page" class="tool-btn icon-btn" title="上一页">
+            <svg class="ic"><use href="#i-chevron-left"/></svg>
+        </button>
+        <span id="page-indicator" style="font-weight:bold;min-width:36px;text-align:center;font-size:12px;">1/1</span>
+        <button id="btn-next-page" class="tool-btn icon-btn" title="下一页">
+            <svg class="ic"><use href="#i-chevron-right"/></svg>
+        </button>
+        <div class="tb-divider"></div>
+
+        <!-- 缩放 -->
+        <div class="zoom-ctrl">
+            <button id="btn-zoom-out" title="缩小">
+                <svg class="ic ic--sm"><use href="#i-minus"/></svg>
+            </button>
+            <span id="zoom-val">100%</span>
+            <button id="btn-zoom-in"  title="放大">
+                <svg class="ic ic--sm"><use href="#i-plus"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="tb-section tb-right">
+        <!-- 工具模式：视图 / 编辑 分段控件（互斥，但两段都可见；当前态高亮） -->
+        <div id="tool-mode-group" class="seg-group" title="视图 / 编辑 模式切换（Space 临时切视图）">
+            <button class="seg active" data-mode="hand" title="浏览模式：拖动画布 / 查看 / 缩放">
+                <svg class="ic"><use href="#i-hand"/></svg><span>视图</span>
+            </button>
+            <button class="seg" data-mode="pointer" title="编辑模式：选中 / 拖拽标记 / 框选">
+                <svg class="ic"><use href="#i-mouse-pointer"/></svg><span>编辑</span>
+            </button>
+        </div>
+        <div class="tb-divider"></div>
+
+        <!-- 历史 -->
+        <button id="btn-undo" class="tool-btn icon-btn" disabled title="撤销 (Ctrl+Z)">
+            <svg class="ic"><use href="#i-undo"/></svg>
+        </button>
+        <button id="btn-redo" class="tool-btn icon-btn" disabled title="重做 (Ctrl+Y)">
+            <svg class="ic"><use href="#i-redo"/></svg>
+        </button>
+        <div class="tb-divider"></div>
+        <button id="tool-stamp-toggle" class="stamp-toggle" title="手动标记模式">
+            <svg class="ic"><use href="#i-crosshair"/></svg><span>标记</span>
+        </button>
+        <div class="tb-divider"></div>
+
+        <!-- Stage 1：解析（范围在控制面板 → 解析范围 里切换；默认全部页） -->
+        <button id="btn-analyze" class="action-btn bg-teal" title="解析尺寸标注（范围在控制面板切换）">
+            <svg class="ic"><use href="#i-sparkles"/></svg><span>解析</span>
+        </button>
+        <label class="file-upload-wrapper measurement-upload-wrapper" title="导入测量结果 Excel（.xls / .xlsx）">
+            <svg class="ic"><use href="#i-folder-open"/></svg>
+            <span>导入测量结果</span>
+            <input type="file" id="measurement-upload" accept=".xls,.xlsx,.xlsm" multiple>
+        </label>
+        <label class="file-upload-wrapper measurement-upload-wrapper" title="导入旧序号 PDF，转换为当前可编辑标记">
+            <svg class="ic"><use href="#i-folder-open"/></svg>
+            <span>导入旧序号</span>
+            <input type="file" id="legacy-stamp-upload" accept=".pdf">
+        </label>
+        <div class="tb-divider"></div>
+        <button id="btn-download-log" class="tool-btn icon-btn" title="导出完整调试记录（多页 /analyze + 手绘章 OCR + Excel 导出 + 当前编辑状态 + JS 错误）">
+            <svg class="ic ic--thin"><use href="#i-clipboard"/></svg>
+        </button>
+    </div>
+</div>
+
+<!-- ═══════════════════════════ 浮动工具条 ════════════════════════════════════ -->
+<div id="stamp-options">
+    <!-- 颜色 & 序号 & 字号 & 比例 & 递增 -->
+    <div id="global-color-toggle" class="normal" title="点击切换：普通(红) / 重点(蓝)"></div>
+    <label style="color:white;font-size:13px;margin-left:4px;">
+        序号: <input type="text" id="current-id" value="1" style="width:40px;text-align:center;font-size:14px;">
+    </label>
+    <label style="color:white;font-size:13px;">
+        字号: <input type="number" id="default-font" value="12" style="width:48px;">
+    </label>
+    <label style="color:white;font-size:13px;">
+        圈比: <input type="number" id="shape-ratio" value="0.60" step="0.05" style="width:48px;" title="气泡尺寸 / 字号 比例">
+    </label>
+    <select id="increment-mode" title="序号递增模式">
+        <option value="auto">自动 +1</option>
+        <option value="manual">保持固定</option>
+    </select>
+    <div class="tb-divider" style="height:32px;background:#666;"></div>
+
+    <!-- A-03: EPS 视图切分间距 Slider（TDD 6.2）-->
+    <div class="eps-slider-group">
+        <label style="color:#aaa;font-size:11px;white-space:nowrap;">视图切分</label>
+        <input type="range" id="eps-slider"
+            min="0" max="1000" value="100" step="1"
+            title="视图切分间距"
+            disabled>
+    </div>
+</div>
+
+<!-- ═══════════════════════════ 主工作区 ═════════════════════════════════════ -->
+<div id="workspace">
+    <div id="canvas-wrapper">
+        <div id="pdf-pages-container"></div>
+    </div>
+    <canvas id="vector-debug-layer" hidden aria-hidden="true"></canvas>
+    <canvas id="draw-layer"></canvas>
+
+    <!-- 小地图 -->
+    <div id="minimap" class="active" title="单击快速定位视图">
+        <div id="minimap-canvas-container"></div>
+        <div id="minimap-viewport"></div>
+    </div>
+
+    <!-- TDD 6.4: Stage 1 全局 Loading 遮罩 -->
+    <div id="global-loading">
+        <div class="loading-inner">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">处理中...</div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════ 侧边栏 ═══════════════════════════════════════ -->
+<div id="sidebar-container">
+    <div id="sidebar-tab" title="收起/展开数据面板">
+        <svg class="ic sidebar-tab-chevron"><use href="#i-chevron-left"/></svg>
+        <span class="sidebar-tab-label">数据列表</span>
+    </div>
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <!-- 第一行：标题 + 计数 + 排序按钮 -->
+            <div class="sidebar-header-top">
+                <span style="display:inline-flex;align-items:center;gap:6px;">
+                    <svg class="ic"><use href="#i-list"/></svg>
+                    <span id="sb-title-label">标记列表</span>
+                    <span id="sb-count" style="color:#007bff;font-size:13px;">(0)</span>
+                </span>
+                <div style="display:flex;gap:6px;">
+                    <button id="btn-reindex"    class="sort-btn" title="按视图空间位置重排序号">
+                        <svg class="ic ic--sm"><use href="#i-grid-sort"/></svg><span>空间重排</span>
+                    </button>
+                    <button id="btn-sort-order" class="sort-btn" title="切换排序规则">
+                        <svg class="ic ic--sm"><use href="#i-arrow-up-down"/></svg><span class="sort-label">正序</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-tabs" role="tablist" aria-label="数据面板">
+                <button id="sidebar-tab-dimensions" class="sidebar-tab-btn active" type="button" data-tab="dimensions">尺寸列表</button>
+                <button id="sidebar-tab-review" class="sidebar-tab-btn" type="button" data-tab="review">待复核 <span id="review-tab-count">0</span></button>
+                <button id="sidebar-tab-inspection" class="sidebar-tab-btn" type="button" data-tab="inspection">检验结果</button>
+            </div>
+
+            <div id="review-batch-actions" class="review-batch-actions" hidden>
+                <span id="review-selection-count" aria-live="polite">已选 0</span>
+                <button id="btn-review-confirm-selected" type="button" disabled>确认选中</button>
+                <button id="btn-review-dismiss-selected" type="button" disabled>拒绝选中</button>
+            </div>
+
+            <!-- 第二行：确认进度条 -->
+            <div class="sb-progress-wrap">
+                <span class="sb-progress-label">已确认 <span id="sb-confirmed-count">0</span> / <span id="sb-total-count">0</span></span>
+                <div class="sb-progress-track"><div class="sb-progress-fill" id="sb-progress-fill"></div></div>
+            </div>
+
+            <!-- 第三行：重新解析 -->
+            <button id="btn-run-ai" class="action-btn bg-purple"
+                style="width:100%;padding:10px;font-size:14px;height:auto;"
+                title="重新调用后端解析当前页，替换所有 AI 自动标记">
+                <svg class="ic"><use href="#i-refresh"/></svg><span>重新解析</span>
+            </button>
+
+            <!-- 全部确认 -->
+            <button id="btn-confirm-all" class="action-btn bg-green-outline"
+                style="width:100%;padding:7px;font-size:13px;height:auto;"
+                title="将当前所有标记标为已确认">
+                <svg class="ic"><use href="#i-check-circle"/></svg><span>全部确认</span>
+            </button>
+        </div>
+
+        <!-- Stamp 列表（tabindex 使其可接收键盘事件）-->
+        <ul id="stamp-list" tabindex="0"></ul>
+
+        <!-- 符号面板（全局单例浮层，位置由 JS 动态定位）-->
+        <div id="symbol-palette"></div>
+
+        <!-- 导出（单一入口：ZIP 含 stamp PDF + 原始 PDF + 尺寸表 Excel + JSON 日志） -->
+        <div class="sidebar-bottom-actions">
+            <button id="btn-submit" class="action-btn bg-blue"
+                style="width:100%;padding:14px;font-size:16px;height:auto;"
+                title="导出工程归档（含 stamp PDF / 原始 PDF / 尺寸表 Excel / JSON 日志）">
+                <svg class="ic ic--lg"><use href="#i-download"/></svg><span>导出工程归档</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- 控制面板 -->
+<div id="control-panel-backdrop" style="display:none; position:fixed; inset:0; z-index:4999;"></div>
+<div id="control-panel" style="display:none; position:fixed; top:60px; left:10px;
+     background:#fff; border:1px solid #ddd; border-radius:10px; padding:0;
+     z-index:5000; box-shadow:0 8px 32px rgba(0,0,0,0.25); width:300px;
+     max-height:80vh; overflow-y:auto; font-size:13px;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center;
+         padding:12px 16px; border-bottom:1px solid #eee; position:sticky; top:0; background:#fff;
+         border-radius:10px 10px 0 0;">
+        <strong style="display:inline-flex;align-items:center;gap:6px;">
+            <svg class="ic"><use href="#i-settings"/></svg>
+            <span>控制面板</span>
+        </strong>
+        <button id="btn-close-panel" style="border:none; background:none; cursor:pointer;
+                display:inline-flex; align-items:center; justify-content:center;
+                width:28px; height:28px; border-radius:6px; color:#666;" title="关闭">
+            <svg class="ic"><use href="#i-x"/></svg>
+        </button>
+    </div>
+
+    <div class="panel-section" style="padding:12px 16px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:600; margin-bottom:8px; cursor:pointer;"
+             onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display==='none'?'block':'none'">
+            尺寸颜色 ▾</div>
+        <div>
+            <div id="color-rows"></div>
+            <button id="btn-reset-colors" style="margin-top:6px; padding:3px 10px;
+                    font-size:12px; cursor:pointer; border:1px solid #ccc; border-radius:4px;
+                    background:#f8f8f8;">恢复默认</button>
+        </div>
+    </div>
+
+    <div class="panel-section" style="padding:12px 16px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:600; margin-bottom:8px;">解析范围</div>
+        <div>
+            <label style="margin-right:12px;cursor:pointer;"><input type="radio" name="analyze-scope" value="current"> 仅当前页</label>
+            <label style="cursor:pointer;"><input type="radio" name="analyze-scope" value="all" checked> 全部页</label>
+            <div id="analyze-scope-ocr-hint" style="display:none;margin-top:6px;font-size:11px;color:#999;">OCR 兼容模式的全页处理可能耗时较长；需降低阻塞时可切换为仅当前页。</div>
+        </div>
+    </div>
+
+    <div class="panel-section" style="padding:12px 16px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:600; margin-bottom:8px;">显示过滤</div>
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+            <input type="checkbox" id="toggle-hide-low-conf">
+            <span>隐藏低置信度 AI 标记</span>
+        </label>
+        <div style="margin-top:6px;font-size:11px;color:#999;">
+            勾选后画布和侧栏只显示 high/medium AI 标记 + 所有手绘章；已确认的低置信度仍显示。减少视觉噪音。
+        </div>
+    </div>
+
+    <div class="panel-section" style="padding:12px 16px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:600; margin-bottom:8px;">导出设置</div>
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+            <input type="checkbox" id="toggle-export-confirmed-only">
+            <span>只导出已确认项</span>
+        </label>
+        <div style="margin-top:6px;font-size:11px;color:#999;">
+            勾选后导出的 ZIP / JSON / 固化 PDF 仅包含 confirmed=true 的标记，未确认项不外发。
+        </div>
+    </div>
+
+    <div class="panel-section" style="padding:12px 16px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:600; margin-bottom:8px;">导航设置</div>
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+            <input type="checkbox" id="toggle-sidebar-click-teleport" checked>
+            <span>点击侧栏行定位到画布</span>
+        </label>
+        <div style="margin-top:6px;font-size:11px;color:#999;">
+            勾选后单击侧栏某行会平移画布把对应章移到屏幕中心并高亮 0.8s；Ctrl/Cmd 多选时不触发。
+        </div>
+    </div>
+
+    <div class="panel-section" style="padding:12px 16px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:600; margin-bottom:8px;">绘制设置</div>
+        <div style="margin-bottom:8px;">
+            <span style="color:#666;">盖章方式：</span><br>
+            <label style="margin-right:12px;cursor:pointer;"><input type="radio" name="draw-mode" value="click" checked> 点两次</label>
+            <label style="cursor:pointer;"><input type="radio" name="draw-mode" value="drag"> 拖拽</label>
+        </div>
+        <div style="margin-bottom:8px;">
+            <span style="color:#666;">绘制顺序：</span><br>
+            <label style="margin-right:12px;cursor:pointer;"><input type="radio" name="draw-order" value="arrow_first" checked> 先点箭头</label>
+            <label style="cursor:pointer;"><input type="radio" name="draw-order" value="number_first"> 先点数字</label>
+        </div>
+        <div style="margin-bottom:8px;">
+            <span style="color:#666;">序号递增：</span><br>
+            <label style="margin-right:12px;cursor:pointer;" title="删掉 #7 后下一枚补回 7（初稿盖章推荐）">
+                <input type="radio" name="inc-strategy" value="fill" checked> 填补空缺
+            </label>
+            <label style="cursor:pointer;" title="下一枚始终 = 当前最大号 + 1，不回填（改稿阶段推荐）">
+                <input type="radio" name="inc-strategy" value="next"> 纯递增
+            </label>
+        </div>
+        <div style="margin-bottom:4px;display:flex;align-items:center;gap:8px;">
+            <span style="color:#666;">字号：</span>
+            <input type="number" id="panel-font-size" value="12" min="6" max="36"
+                   style="width:50px;padding:2px 4px;border:1px solid #ccc;border-radius:3px;">
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <span style="color:#666;">形状比：</span>
+            <input type="number" id="panel-shape-ratio" value="0.60" min="0.3" max="1.0" step="0.05"
+                   style="width:60px;padding:2px 4px;border:1px solid #ccc;border-radius:3px;">
+        </div>
+    </div>
+
+    <div class="panel-section" style="padding:12px 16px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:600; margin-bottom:8px;">高级 · 调试</div>
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+            <input type="checkbox" id="toggle-debug-log" checked>
+            <span>显示「调试日志」按钮</span>
+        </label>
+        <div style="margin-top:6px;font-size:11px;color:#999;">
+            下载的是上次解析的后端调试日志，仅开发/排查阶段需要；稳定后可关闭。
+        </div>
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; margin-top:12px;">
+            <input type="checkbox" id="toggle-vector-layer-debug">
+            <span>启用纯矢量分层诊断</span>
+        </label>
+        <button type="button" id="btn-open-vector-debug" disabled
+                style="margin-top:8px;width:100%;padding:6px 10px;border:1px solid #bbb;border-radius:5px;background:#fff;cursor:pointer;font-size:12px;">
+            打开分层调试器
+        </button>
+        <div style="margin-top:6px;font-size:11px;color:#999;">
+            默认关闭且不写入工程数据；只请求有上限的层级统计与位置叠加。
+        </div>
+    </div>
+
+    <details class="panel-section" style="padding:12px 16px; border-bottom:1px solid #f0f0f0;">
+        <summary style="font-weight:600; cursor:pointer;">高级 · 识别后端</summary>
+        <div style="margin-top:10px;">
+            <div style="font-weight:600; margin-bottom:8px;">识别路径</div>
+            <div id="recognition-settings-rows"></div>
+            <div style="font-weight:600; margin:12px 0 8px;">OCR 引擎</div>
+            <div id="ocr-engine-rows"></div>
+            <div style="font-weight:600; margin:12px 0 8px;">视图分割</div>
+            <div id="view-seg-rows"></div>
+            <div style="font-weight:600; margin:12px 0 8px;">GD&T 形位公差</div>
+            <div id="gdt-rows"></div>
+        </div>
+    </details>
+
+    <div class="panel-section" style="padding:12px 16px;">
+        <div style="font-weight:600; margin-bottom:8px;">选中项</div>
+        <div id="selected-stamp-info" style="color:#999;">未选中任何尺寸</div>
+    </div>
+</div>
+
+<!-- 纯矢量分层诊断：独立于产品侧栏、待复核状态与正式绘制层。 -->
+<aside id="vector-debug-drawer" hidden aria-label="纯矢量分层调试器">
+    <div class="vector-debug-drawer-header">
+        <div>
+            <strong>纯矢量分层调试器</strong>
+            <div id="vector-debug-status">尚未运行诊断</div>
+        </div>
+        <button type="button" id="btn-close-vector-debug" aria-label="关闭分层调试器">×</button>
+    </div>
+    <div id="vector-debug-summary"></div>
+    <label class="vector-debug-page-picker" for="vector-debug-page-select">
+        <span>诊断页</span>
+        <select id="vector-debug-page-select" disabled aria-label="选择分层诊断页"></select>
+    </label>
+    <div class="vector-debug-stage-head" aria-hidden="true">
+        <span>层</span><span>输入→输出</span><span>丢弃</span><span>耗时</span>
+    </div>
+    <div id="vector-debug-stage-list"></div>
+    <div id="vector-debug-first-drop"></div>
+</aside>
+
+<!-- 选中章悬浮编辑窗：单选 stamp 时贴近章号气泡，重复右侧栏的字段表单 -->
+<div id="stamp-popup" class="stamp-popup" style="display:none;"></div>
+
+<!-- D-03: 模块路径与文件结构对齐（所有 .js 文件均在根目录）-->
+<script type="module" src="./app.js"></script>
+</body>
+</html>
