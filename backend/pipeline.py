@@ -1,40 +1,22 @@
-"""
-pipeline.py — Type B 主管线抽取
+"""Coordinate strict-vector analysis and separate legacy compatibility paths.
 
-集中协调页面分析阶段，为严格矢量路径及隔离的 legacy 兼容路径提供入口。
+For ``dimension_path=vector_only``, shared PDF vector primitives supply real
+shape anchors. The current directional-walk producer feeds controlled glyph
+reading, validation, hypotheses, deduplication and the review-candidate
+contract. Automatic candidates require human confirmation before formal
+annotations and export.
 
-用法:
-    from pipeline import run_type_b_pipeline
+Strict mode bypasses OCR and source-drawing arrows, dimension lines and leaders
+as recognition evidence. Missing or inconsistent runtime assets fail closed.
+View boxes are spatial grouping/clipping only; GD&T datum fields stay blank.
+The default retained GD&T reader is fail-closed, and end-to-end GD&T acceptance
+is incomplete.
 
-    result = run_type_b_pipeline(
-        pdf_bytes=pdf_bytes,
-        page=page,                   # pdfplumber page
-        page_index=page_index,       # 0-based
-        dpi=200,
-        gdt_detector=_gdt_detector,  # 可选，None = 跳过 YOLO
-        verbose=False,
-    )
+Legacy OCR/hybrid helpers below support explicitly separate compatibility and
+diagnostic paths. Their presence does not enable a strict-mode fallback.
 
-返回 rich dict：
-    - 最终产物: dimensions, references, gdt_frames
-    - 视图切分: view_boxes
-    - 计时: timings
-    - 中间产物（debug 脚本可取用）:
-        lines_result, text_regions, rects_result, capsule_candidates,
-        diameter_glyphs, gdt_frames_from_lines, gdt_frames_all,
-        reconstructed_rects, detected_dim_lines, detected_leader_lines, ocr_results,
-        ocr_breakdown, yolo_gdt_results, annotation_lw, frame_borders
-
-严格遵守 CLAUDE.md 里的调用顺序约束：
-    1. segment_views
-    2. extract_diameter_glyphs
-    3. 矢量几何 (lines / rects / capsules / GD&T line frames / arrows)
-    4. build_augmented_gdt_frames  ← 统一 GD&T 框候选
-    5. OCR passes (candidate-guided flag → directed → compartment → capsule → dimline → hires → strip → 90/270)
-    6. dedup_ocr_engineering
-    7. inject_diameter_prefix
-    8. YOLO-B 分类
-    9. assemble_type_b
+Entry point: ``run_type_b_pipeline``. Its result includes candidate contracts,
+view boxes, timings and diagnostic fields appropriate to the selected path.
 """
 
 import math

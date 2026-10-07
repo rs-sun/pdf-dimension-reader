@@ -1,30 +1,32 @@
-# pdf_reader
+# pdf-dimension-reader
 
-面向 Siemens NX（旧称 UG）导出的矢量工程图 PDF 的尺寸识别与人工复核研究项目。核心通过工程字体的字形结构、笔画拓扑和字符排布寻找尺寸候选，经人工确认后生成标注并导出 Excel。输入为 PDF，不直接解析 NX/UG 原生 CAD 文件。
+English | [简体中文](README.zh-CN.md)
 
-This research project recognizes and reviews dimensions in vector engineering-drawing PDFs exported from Siemens NX (formerly UG). Its core uses glyph structure, stroke topology, and character layout. Human-confirmed candidates can become annotations and Excel rows. It accepts PDFs rather than native CAD files.
+A research tool for dimension recognition and human review of **vector engineering-drawing PDFs exported from Siemens NX (formerly UG)**. It uses engineering-font glyph structure, stroke topology, and character layout to discover dimension candidates. Human-confirmed candidates can become annotations and Excel rows. The input is PDF; native NX/UG CAD files are not parsed.
 
-研究路线、核心方法和失败教训见 [研究梗概](RESEARCH_SUMMARY.md)。该文档重新概括方法与设计取舍，不附带原始实验记录或工程图证据。
+Read the [research summary](RESEARCH_SUMMARY.en.md) for the methods and lessons, [architecture](docs/ARCHITECTURE.md) for the current code path, and [configuration guide](docs/CONFIGURATION.md) for the runtime asset requirements.
 
-## 当前能力
+## Current status
 
-- 普通尺寸候选与人工确认工作台已有代码接线。
-- 严格矢量路径不调用 OCR，也不用来源图纸的箭头、尺寸线或引线证明文字含义。
-- 保留自主结构识别代码、有限字形结构统计及字符步长规则；不附带 NX/UG 字体文件或完整字形轮廓模板。
-- GD&T 候选链与多页正确率、漏检、误检和性能仍需验收。基准字段始终留空。
-- 现有候选副本未包含模型及受控轮廓模板，严格运行准备检查预期返回 `503 not_ready`。不能把这一副本称为可立即投入生产的最终版。
+- Ordinary dimensions have source code connecting shape-anchor discovery, directional walking, controlled glyph reading, candidate validation, and the human-review workbench.
+- The strict vector path makes no OCR calls and does not use source-drawing arrows, dimension lines, or leaders to prove text content.
+- The release retains recognition algorithms, limited glyph-structure statistics, and character step rules. NX/UG font binaries and complete glyph-outline templates are excluded.
+- Strict GD&T integration and multipage accuracy, misses, false positives, and performance still require acceptance testing. Datum/reference-letter fields remain blank. Threads and fits are deferred.
+- **This is a source release with incomplete runtime asset integration.** Recognition models and controlled outline templates are absent, and the controlled-template identity binding is intentionally empty. Strict readiness is expected to return HTTP `503` with `not_ready`. Supplying environment variables alone does not complete that binding.
 
-## 源码范围
+The code and synthetic tests do not establish production readiness or accuracy on arbitrary NX/UG exports.
 
-包含识别与复核源码、有限字符结构及步长表、前端库及对应许可、合成合同样例和回归测试。没有工程图、图纸裁片、测量报告、NX/UG 字体二进制、完整轮廓模板、训练数据、模型权重或原开发历史。
+## Release contents
 
-官方 PDF.js 库内嵌一个仅含句点字形的通用字体加载测试文件；pdf-lib 内嵌公开的标准字体度量和编码表。它们属于上游公开发行内容，不是 NX/UG 字体或工程图数据，许可和来源见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+The repository contains recognition and review source code, limited character-structure and step tables, frontend libraries and their licenses, synthetic contract examples, and regression tests. It contains no engineering drawings, drawing crops, measurement reports, NX/UG font binaries, complete outline templates, training datasets, model weights, or original development history.
 
-结构表记录量化宽高、图元类别、端点数量及字符步进等有限特征，不包含完整笔画坐标序列。源码保留针对工程字体结构和排布规律的识别方法。
+The structure tables contain finite features such as quantized width and height, primitive categories, endpoint counts, and character advances. They do not contain complete stroke-coordinate sequences.
 
-## 本地运行
+The official PDF.js distribution embeds a generic font-loading test file with a period glyph. pdf-lib embeds public standard-font metrics and encoding tables. These upstream components are documented in [third-party notices](THIRD_PARTY_NOTICES.md); they are not NX/UG fonts or engineering-drawing data.
 
-回归使用 Node.js 22；后端使用 Python 3.10 或更新版本。下列命令在源码根目录执行。
+## Local development
+
+Use Python 3.10 or newer. Frontend regressions have been run with Node.js 22. Run these commands from the repository root:
 
 ```bash
 python3 -m venv .venv
@@ -33,28 +35,36 @@ python -m pip install -r backend/requirements.txt
 PDF_READER_EAGER_LOAD_MODELS=0 FLASK_HOST=127.0.0.1 python backend/app.py
 ```
 
-打开 `http://127.0.0.1:5000/`，后端会同时提供前端页面与 API。识别需要合法取得的本地运行资产，以及显式配置的 `YOLO_VIEW_MODEL`、`YOLO_VIEW_MODEL_SHA256`、`R33_M1_TEMPLATE_LIBRARY_PATH`。缺失或不满足严格合同的资产必须拒绝运行，不能用 OCR、测试模型或未固定身份的资产替代。表格接口和页面复核的可用性不代表识别准确率已经验收。
+Open `http://127.0.0.1:5000/`. The backend serves the frontend and API from the same origin. These commands describe the development entry point; installation of the entire recognition dependency set has not been verified across all platforms.
 
-这份源码包不提供运行资产构建和验收的一键流程。重新构建受控模板后，还需要审核结构表与模板的身份绑定、更新相应受控清单及校验摘要，并验证严格合同。仅设置环境变量不能补齐这些步骤；不要直接复用未获再分发许可的字体、图纸或训练资产。
+Recognition requires lawfully obtained local runtime assets and explicit `YOLO_VIEW_MODEL`, `YOLO_VIEW_MODEL_SHA256`, and `R33_M1_TEMPLATE_LIBRARY_PATH` configuration. Rebuilding controlled templates also requires reviewing the structure-table/template binding, updating the controlled manifest and corresponding source digests, and validating the strict contracts. An otherwise valid external template will still fail readiness with `directional_walk_template_identity_mismatch` while the release binding is empty. There is no supplied one-command asset build and acceptance workflow; see [configuration](docs/CONFIGURATION.md).
 
-以上安装命令说明开发入口；整套依赖尚未完成全平台干净环境安装验收。OCR 模块为兼容代码，存在于源码中不代表严格矢量路径会调用它。
+Missing or inconsistent assets must stop recognition. Do not substitute OCR, test assets, PT fallback, or unpinned assets. Legacy OCR/hybrid modules remain for compatibility and diagnostics; their presence does not enable OCR in the strict vector path. A working page or spreadsheet endpoint is not recognition acceptance evidence.
 
-## 表格兼容范围
+## Spreadsheet compatibility
 
-`.xlsx` / `.xlsm` 使用 openpyxl 读取缓存值。`.xls` 使用 python-calamine 0.8.2：保留普通文本、数值、空行空列位置和布尔值的数值表示；遇到日期、时间或时长单元格会明确拒绝导入，需要转换格式或整理这些单元格后再导入。解码器不再把 Excel 错误码作为数值，读为空串时按缺失处理。含公式的工作簿须先在电子表格软件中重算并保存。
+`.xlsx` and `.xlsm` use openpyxl to read cached values. `.xls` uses python-calamine 0.8.2. Ordinary text, numbers, empty row/column positions, and numeric boolean representations are supported. Date, time, or duration cells in `.xls` cause an explicit rejection; convert or clean those cells before importing. Excel error cells are not treated as numerical error codes; empty decoded values are treated as missing.
 
-## 回归
+Recalculate and save workbooks containing formulas in spreadsheet software before import. The decoder does not calculate formulas.
+
+## Tests
+
+The backend test dependency set omits recognition models and OCR runtimes:
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 node --test frontend_tests/*.test.mjs
 python -m pip install -r backend/requirements-test.txt
 PYTHONDONTWRITEBYTECODE=1 python -m pytest -p no:cacheprovider backend/tests
+node --test frontend_tests/*.test.mjs
 ```
 
-包含的合同样例与测试使用虚构数据、标量模拟或内存空白 PDF；没有附带工程图样本、截图或原始测量记录。
+Backend tests cover dimension syntax, settings, controlled-template readiness, diagnostic data boundaries, final-consumption approval, HTTP static-file boundaries, and workbook decoding. Frontend tests cover review contracts and interaction behavior. Examples use invented scalar values, mocked loaders, in-memory blank PDFs, or generated workbooks; no real drawing, screenshot, or measurement fixture is included. Passing these tests does not measure real-drawing recognition accuracy.
 
-## 许可证
+## Contributing
 
-源码发布方案采用 **AGPL-3.0-only**，协议全文见 [LICENSE](LICENSE)。第三方库保留各自许可，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。源码许可不涵盖用户自行取得或生成的图纸、字体、模型与模板资产。
+See [the contribution guide](docs/CONTRIBUTING.md). Preserve fail-closed behavior, explicit asset identity, human confirmation, and the private-data boundary. Add synthetic tests rather than drawing-derived fixtures. Changes to recognition assets or their bindings require their own review and validation.
 
-该项目为独立研究工具，与 Siemens 无官方关联或认可。
+## License
+
+Project source is licensed under **AGPL-3.0-only**; see [LICENSE](LICENSE). Third-party components retain their own licenses, listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+The source license does not grant rights to drawings, fonts, models, or template assets obtained or generated separately. This is an independent research tool with no official affiliation with or endorsement by Siemens.

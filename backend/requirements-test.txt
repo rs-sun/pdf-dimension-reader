@@ -1,4 +1,13 @@
-# Workbook adapter tests run without recognition models or private fixtures.
+# Synthetic contract, HTTP-boundary, and workbook tests.
+# No recognition model, drawing, glyph asset, or OCR engine is required.
 pytest>=8.0.0
+pdfplumber>=0.10.0
+PyMuPDF>=1.23.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+numpy>=1.24.0
+Pillow>=10.0.0
+flask>=3.0.0
+flask-cors>=4.0.0
 openpyxl>=3.1.0
 python-calamine==0.8.2
